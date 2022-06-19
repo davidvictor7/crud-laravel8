@@ -4,11 +4,9 @@ use App\Http\Controllers\{
     PostController
 };
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Route;
 
-Route::get('/posts', [PostController::class, 'Index']);
+Route::post('/criarPost', [PostController::class, 'criarPost']);
+Route::get('/posts', [PostController::class, 'Index'])->name('Index');
 
-Route::get('/', function () {
-    return view('welcome');
-
-});
+Route::get('/', [PostController::class, 'Index']);
